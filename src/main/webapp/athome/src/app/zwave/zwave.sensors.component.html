@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col s1 push-s11">
+      <a routerLink="/zwave/config" title="Settings">
+          <span class="right">
+          <i class="small material-icons">settings</i>
+            </span>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <h4>{{title}}</h4>
+    <div class="sensors">
+      <div *ngFor="let haSensor of sensors">
+        <zwave-sensor [sensor]="haSensor"></zwave-sensor>
+      </div>
+    </div>
+  </div>
+  <pincode></pincode>
+</div>

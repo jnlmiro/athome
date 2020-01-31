@@ -1,0 +1,20 @@
+<div class="valign-wrapper">
+  <div class="col s12 left-align">
+    <div class="col s6">{{ alarmGroup.name }}</div>
+  </div>
+  <div class="col s4">
+    <div class="actions">
+      <div class="switch">
+        <label title="Enable/disable alarm group">
+          <input type="checkbox" [checked]="alarmGroup.enabled"
+                 (change)="enableAlarmGroup($event.target.checked)">
+          <span class="lever"></span>
+          enabled
+        </label>
+      </div>
+      <div>
+          <a [routerLink]="alarmGroup.id" title="Manage group"><span class="right grey-text"><i class="small material-icons">settings</i></span></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+@import "./../forecast/weather-forecast.component";
+@import "./../../../assets/styles/styles";
+
+.current-weather {
+  .info {
+    color: #757575;
+    font-size: small;
+    p {
+      margin: 0;
+    }
+    .city {
+      font-size: x-large;
+    }
+  }
+
+  .weather-img {
+    &.clear-sky {
+      @include weather-background-img("clear.svg");
+    }
+
+    &.nearly-clear-sky {
+      @include weather-background-img("mostlysunny.svg");
+
+    }
+
+    &.variable-cloudiness {
+      @include weather-background-img("partlycloudy.svg");
+    }
+
+    &.halfclear-sky {
+      @include weather-background-img("mostlycloudy.svg");
+    }
+
+    &.cloudy-sky {
+      @include weather-background-img("cloudy.svg");
+    }
+
+    &.fog {
+      @include weather-background-img("fog.svg");
+    }
+
+    &.chance-of-rain {
+      @include weather-background-img("chancerain.svg");
+    }
+
+    &.rain {
+      @include weather-background-img("rain.svg");
+    }
+
+    &.thunderstorm {
+      @include weather-background-img("tstorms.svg");
+    }
+
+    &.thunder {
+      @include weather-background-img("thunder.svg");
+    }
+
+    &.chancesleet {
+      @include weather-background-img("chancesleet.svg");
+    }
+
+    &.sleet {
+      @include weather-background-img("sleet.svg");
+    }
+
+    &.chancesnow {
+      @include weather-background-img("chancesnow.svg")
+    }
+
+    &.snow {
+      @include weather-background-img("snow.svg")
+    }
+  }
+
+  .temperature {
+    @extend .temperature;
+    @extend .semi-bold;
+    font-size: large;
+    color: #000;
+    padding-left: 20px;
+  }
+}
+
+

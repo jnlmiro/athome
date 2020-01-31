@@ -1,0 +1,8 @@
+<div class="col s12">
+  <h5>Alarm Groups</h5>
+  <ul class="collection">
+    <li class="collection-item {{ alarmGroup.fired ? 'alarming':'' }}" *ngFor="let alarmGroup of alarmGroups">
+      <alarm-group [alarmGroup]="alarmGroup"></alarm-group>
+    </li>
+  </ul>
+</div>

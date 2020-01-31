@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import "custom";
+@import "tabs";
+
+@media only screen and (max-width: 800px) {
+  html {
+      cursor: none !important;
+  }
+}
+
+
+html, body {
+  height:100%;
+  width: 100%;
+}
+
+html, body {
+  background-color: #EDEDED !important;
+}
+
+a:hover {
+  cursor: default;
+}
+
+.bluish {
+  color: #455963;
+}
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: inherit;
+}
+
+.row {
+  margin-bottom: 10px !important;
+}
+
+.horizontal-divider {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160,160,160,0.2);
+  padding: 16px 24px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+

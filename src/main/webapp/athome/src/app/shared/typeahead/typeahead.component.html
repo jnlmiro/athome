@@ -1,0 +1,15 @@
+<ng-template #suggestionsTplRef>
+  <div class="row typeahead-results-container" *ngIf="resultsVisible">
+    <div class="col s12 results">
+      <div class="collection" *ngIf="searchResults.length">
+        <a class="collection-item" *ngFor="let searchResult of searchResults;let i = index" [ngClass]="{'active': activeItemIdx === i}" (mouseenter)="onMouseEnter($event, i)"
+           (click)="selectItem()">
+          <span *ngIf="!itemTplRef">{{ searchResult }}</span>
+          <ng-container [ngTemplateOutlet]="itemTplRef"
+                        [ngTemplateOutletContext]="{$implicit: searchResults[0], item: searchResult, index:i}">
+          </ng-container>
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-template>

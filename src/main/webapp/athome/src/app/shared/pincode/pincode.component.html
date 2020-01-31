@@ -1,0 +1,13 @@
+<div class="center">
+  <div class="pincode indicator">
+        <span *ngFor="let digit of enteredDigits" class="text-bold">*</span>
+  </div>
+  <div *ngFor="let digitGroup of getDigits()" class="pincode">
+    <div class="digit" *ngFor="let digit of digitGroup" (click)="enterDigit(digit)">{{digit}}</div>
+  </div>
+  <div class="pincode">
+    <div class="digit" (click)="removeDigit()"><i class="tiny material-icons">backspace</i></div>
+    <div class="digit" (click)="enterDigit(0)">0</div>
+    <div class="digit" (click)="confirm()">OK</div>
+  </div>
+</div>

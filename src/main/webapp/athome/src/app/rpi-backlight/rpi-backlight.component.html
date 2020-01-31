@@ -1,0 +1,14 @@
+<div class="col s12">
+  <div class="row">
+    <div class="col s12 wrapper white">
+      <h4>{{title}}</h4>
+
+      <div class="col s12">
+        <div class="range-field">
+          <input type="range" step="1" min="11" max="256" (change)="onChange($event)" [(ngModel)]="backListIntensity"
+                 name="rpiBacklightRange"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+.alarming {
+  animation: 1s ease infinite pulse;
+}
+
+@keyframes pulse {
+
+  0% {
+    background: #d32f2f ;
+    color: white;
+    font-weight: bold;
+  }
+
+  25% {
+    background: #c62828;
+    color: white;
+    font-weight: bold;
+  }
+
+  50% {
+    background: #b71c1c;
+    color: white;
+    font-weight: bold;
+
+  }
+}

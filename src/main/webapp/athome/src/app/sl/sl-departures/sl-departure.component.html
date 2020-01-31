@@ -1,0 +1,28 @@
+<div>
+  <h4 class="bluish station-name">{{station.name}}</h4>
+  <ul *ngIf="slDeparture">
+    <li [@fadeIn]="''" *ngFor="let departureGroup of slDeparture.groups | filterDepartures:departureGroupType">
+      <div *ngIf="departureGroup.departures.length">
+        <div>
+          <h5>{{departureGroup.type}}</h5>
+        </div>
+        <div>
+          <div *ngFor="let departure of departureGroup.departures" class="row">
+            <div class="col s12 {{shouldAlert(departure)? 'red-text text-darken-4':''}}">
+              <div>
+                <div class="col s1 no-padding-left">
+                  <span class="semi-bold">{{departure.lineNumber}}</span>
+                </div>
+                <div class="col s11">
+                  <span> {{departure.destination}} - {{departure.displayTime}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

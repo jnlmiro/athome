@@ -1,0 +1,17 @@
+<div class="col s12 no-padding-sides" *ngIf="weatherForecast2">
+  <ul class="timeseries">
+    <li class="item center card grey lighten-5"
+        *ngFor="let series of weatherForecast2.timeSeries | currentWeatherTimeseriesFilter:false">
+      <div>
+        <div>{{series.hour}}:00</div>
+        <div>
+          <span class="weather-img {{getWeatherImageClass(series)}}"></span>
+        </div>
+        <div>
+          <div class="temperature">{{series.parameters.t.value}}</div>
+          <div class="precipitation">{{series.parameters.pmean.value}}</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+.sensor {
+  margin: 5px;
+  background-color: white;
+  font-weight: 400;
+  font-size: large;
+
+  .name {
+    color: #757575;
+    font-size: x-small;
+  }
+
+  &.alarming {
+    .name {
+      color: white;
+    }
+
+    color: white !important;
+    background: #B71C1C !important;
+  }
+}

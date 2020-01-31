@@ -1,0 +1,21 @@
+
+.pincode {
+  display: flex;
+  justify-content: center;
+
+  &.indicator {
+    font-weight: bold;
+    height: 2rem;
+    text-align: center;
+  }
+
+  .digit {
+    cursor: pointer;
+    width: 3rem;
+    background-color: darkgrey;
+    padding: 10px;
+    font-size: 100%;
+    font-weight: 400;
+    margin: 1px;
+  }
+}

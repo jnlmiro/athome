@@ -1,0 +1,17 @@
+<div class="wrapper white">
+  <div class="row">
+    <div class="col s1 push-s11">
+      <a routerLink="/sl/config" title="Settings">
+          <span class="right grey-text">
+          <i class="small material-icons">settings</i>
+            </span>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 no-padding-sides">
+      <sl-departure [station]="station" *ngFor="let station of enabledStations"></sl-departure>
+      <div class="divider"></div>
+    </div>
+  </div>
+</div>

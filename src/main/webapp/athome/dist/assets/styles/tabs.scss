@@ -1,0 +1,24 @@
+.home-app-tabs {
+  margin-bottom: 2px;
+
+  .tabs {
+    background-color: transparent;
+  }
+}
+
+.home-app-tab {
+  text-align: left;
+  font-weight: 700;
+  background-color: white;
+
+  a {
+    color: #1676d2 !important;
+  }
+
+  & .active {
+    background-color: #1676d2 !important;
+    color: white !important;
+  }
+
+
+}
