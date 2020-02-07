@@ -30,3 +30,5 @@ HELP.md
 
 /paho*
 /src/main/resources/application.properties.local
+/src/main/webapp/athome/node/
+/src/main/webapp/athome/node_modules/
