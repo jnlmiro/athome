@@ -14,8 +14,8 @@ public class MqttConfigurationContainer {
     @Value("${mqtt.qos}")
     private int qos;
 
-    @Value("${mqtt.has.ssl}")
-    private boolean hasSsl;
+    @Value("${mqtt.ssl.enabled}")
+    private boolean sslEnabled;
 
     @Value("${mqtt.port}")
     private int port;
@@ -49,12 +49,12 @@ public class MqttConfigurationContainer {
         this.qos = qos;
     }
 
-    public boolean isHasSsl() {
-        return hasSsl;
+    public boolean isSslEnabled() {
+        return sslEnabled;
     }
 
-    public void setHasSsl(boolean hasSsl) {
-        this.hasSsl = hasSsl;
+    public void setSslEnabled(boolean sslEnabled) {
+        this.sslEnabled = sslEnabled;
     }
 
     public int getPort() {

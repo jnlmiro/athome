@@ -3,11 +3,15 @@ package org.jorgma.athome.zwave;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.jorgma.athome.configuration.MqttConfigurationContainer;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by jorgma on 2018-06-29.
  */
+
+@ConditionalOnProperty(name = "mqtt.enabled", havingValue = "true")
 @Service
 public class HomeAssistantClient {
 
