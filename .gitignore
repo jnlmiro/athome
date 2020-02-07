@@ -32,3 +32,4 @@ HELP.md
 /src/main/resources/application.properties.local
 /src/main/webapp/athome/node/
 /src/main/webapp/athome/node_modules/
+/src/main/webapp/athome/node/node
