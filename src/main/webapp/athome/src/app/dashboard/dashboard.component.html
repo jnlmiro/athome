@@ -1,22 +1,20 @@
-<div class="row">
-  <div class="col s12">
-    <div class="dashboard wrapper white">
-      <div class="col s12">
-        <h4>{{title}}</h4>
-      </div>
-      <div class="row">
-        <ul class="col s12">
-          <li class="board" *ngFor="let board of boards">
-            <div (click)="navigate(board)" class="card">
-              <div class="card-content">
-                <div>
-                  <a>{{board.name}}</a>
-                </div>
+<div class="col s12">
+  <div class="dashboard wrapper white">
+    <div class="col s12">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="row">
+      <ul class="col s12">
+        <li class="board" *ngFor="let board of boards">
+          <div (click)="navigate(board)" class="card">
+            <div class="card-content">
+              <div>
+                <a>{{board.name}}</a>
               </div>
             </div>
-          </li>
-        </ul>
-      </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

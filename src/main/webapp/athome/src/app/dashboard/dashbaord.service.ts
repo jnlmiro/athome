@@ -19,7 +19,7 @@ export class DashboardService {
       let path = router.config[i].path;
       if (this.isPathToShow(path)) {
         board.path = router.config[i].path;
-        board.name = board.path[0].toUpperCase() + board.path.slice(1);
+        board.name = board.path[0] + board.path.slice(1);
         boards.push(board);
       }
     }
