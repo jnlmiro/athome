@@ -17,22 +17,19 @@ export class PincodeComponent implements OnInit {
   ngOnInit() {
   }
 
-
   getDigits():number[][] {
     return this.pincodeService.getDigitGroups();
   }
 
   enterDigit(digit:number) {
     this.pincodeService.enterDigit(digit);
-    console.log(this.pincodeService.enteredDigits)
   }
 
   removeDigit() {
     this.pincodeService.removeDigit();
-    console.log(this.pincodeService.enteredDigits)
   }
 
   confirm() {
-    this.pincodeService.confirm()
+    this.enteredDigits = this.pincodeService.confirm();
   }
 }

@@ -1,6 +1,8 @@
 <div class="center">
   <div class="pincode indicator">
-        <span *ngFor="let digit of enteredDigits" class="text-bold">*</span>
+    <div *ngIf="enteredDigits.length">
+      <span *ngFor="let digit of enteredDigits" class="text-bold">*</span>
+    </div>
   </div>
   <div *ngFor="let digitGroup of getDigits()" class="pincode">
     <div class="digit" *ngFor="let digit of digitGroup" (click)="enterDigit(digit)">{{digit}}</div>

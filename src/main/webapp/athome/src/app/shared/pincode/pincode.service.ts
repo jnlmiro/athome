@@ -19,11 +19,10 @@ export class PincodeService {
   }
 
   enterDigit(digit: number): void {
-    if (this.enteredDigits.length < this.MAX_NUMBER_OF_DIGITS) {
-      this.enteredDigits.push(digit);
-    } else {
-      throw new Error("Too many digits");
+    if (this.enteredDigits.length >= this.MAX_NUMBER_OF_DIGITS) {
+      this.enteredDigits.shift();
     }
+    this.enteredDigits.splice(this.enteredDigits.length, 0, digit);
   }
 
   removeDigit(): void {
@@ -33,7 +32,8 @@ export class PincodeService {
   }
 
   confirm() {
-    console.log(`enteredDigits: ${this.enteredDigits}`);
+    this.enteredDigits = [];
+    return this.enteredDigits;
   }
 }
 

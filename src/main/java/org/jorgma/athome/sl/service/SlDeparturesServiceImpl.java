@@ -1,9 +1,11 @@
 package org.jorgma.athome.sl.service;
 
 import org.jorgma.athome.sl.business.SlDeparturesBl;
-import org.jorgma.athome.sl.domain.SlDeparturesRestApiResponse;
+import org.jorgma.athome.sl.domain.Departure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by jorgma on 2017-12-02.
@@ -15,8 +17,8 @@ public class SlDeparturesServiceImpl implements SlDeparturesService {
     SlDeparturesBl slDeparturesBl;
 
     @Override
-    public SlDeparturesRestApiResponse getDepartureGroups(int siteId) {
-        return slDeparturesBl.getDepartureGroups(siteId);
+    public List<Departure> getDepartures(int siteId) {
+        return slDeparturesBl.getDepartures(siteId);
     }
-}
 
+}

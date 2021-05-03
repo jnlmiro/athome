@@ -35,7 +35,7 @@ export class AlarmGroupService {
   }
 
   getAlarmGroup(id: number): Observable<AlarmGroup> {
-    return this.httpClient.get<AlarmGroup>(this.url)
+    return this.httpClient.get<AlarmGroup>(`${this.url}/${id}`)
       .pipe(
         map(res => res),
         catchError((error: any) => throwError(error || 'Server error')));

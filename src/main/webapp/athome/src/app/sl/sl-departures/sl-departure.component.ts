@@ -22,7 +22,7 @@ import {Station} from "../stations/station.model";
 })
 export class SlDepartureComponent implements OnInit, OnDestroy {
 
-  slDeparture: SlDeparture;
+  slDepartures: SlDeparture[];
   updateInterval: number;
   departureGroupType:string;
 
@@ -46,7 +46,7 @@ export class SlDepartureComponent implements OnInit, OnDestroy {
 
   public getDepartures(station: Station) {
     this.slDepartureService.getDepartures(this.station)
-      .subscribe((slDepartures) => this.slDeparture = slDepartures)
+      .subscribe((slDepartures) => this.slDepartures=slDepartures);
   }
 
 

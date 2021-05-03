@@ -26,16 +26,8 @@ export class AlarmGroupDetailsComponent implements OnInit {
 
 
   private getAlarmGroup(id: number): void {
-    /*this.alarmGroupService.getAlarmGroup(id)
-      .subscribe(alarmgroup => this.alarmGroup = alarmgroup);*/
-
-    this.alarmGroup = new AlarmGroup();
-    this.alarmGroup.name = "One";
-    this.alarmGroup.enabled = true;
-    this.alarmGroup.fired = false;
-
-    console.log(this.alarmGroup);
-
+    this.alarmGroupService.getAlarmGroup(id)
+      .subscribe(alarmgroup => this.alarmGroup = alarmgroup);
   }
 
   private enableAlarmGroup(enabled: boolean): void {

@@ -2,10 +2,11 @@
  * Created by jorgma on 2017-07-06.
  */
 import {Injectable} from '@angular/core';
-import {Departure, Group, SlDeparture} from "./sl-departure.model";
+import {Departure, Group, SlDeparture, SlDepartureGroup} from "./sl-departure.model";
 import {Station} from "../stations/station.model";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 
 const TYPES = {
@@ -32,12 +33,28 @@ export class SlDepartureService {
   }
 
 
-  public getDepartures(station: Station) {
+  public getDepartures(station: Station): Observable<SlDeparture[]> {
     let stationId = station.siteId;
     return this.httpClient.get(`${this.url}${stationId}`)
-      .pipe(map((res) => this.mapDepartures(res)));
+      .pipe(map((res) => res));
   }
 
+
+  private groupByTransportType(departures: SlDeparture []): SlDepartureGroup [] {
+    let group: any = {};
+
+    departures.forEach(dp => {
+      if (!group[dp.transport.transportType]) {
+        group[dp.transport.transportType].departures.push(dp);
+      } else {
+        group[dp.transport.transportType] = {departures: [dp]};
+      }
+    });
+
+    return Object.keys(group).map(key => {
+      return new SlDepartureGroup(group[key].departures, key, TYPE_IMGS[key])
+    });
+  }
 
   private mapDepartures(res): SlDeparture {
     let resObj = res;
