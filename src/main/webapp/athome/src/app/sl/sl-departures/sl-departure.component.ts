@@ -48,7 +48,6 @@ export class SlDepartureComponent implements OnInit, OnDestroy {
     this.slDepartureService.getDepartureGroups(station)
       .subscribe((slDepartureGroup) => {
         this.slDepartureGroups=slDepartureGroup;
-        console.log(this.slDepartureGroups);
       });
   }
 
