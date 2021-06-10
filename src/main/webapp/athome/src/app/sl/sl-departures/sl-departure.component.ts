@@ -3,7 +3,7 @@
  */
 import {Component, OnInit, OnDestroy, Input} from "@angular/core";
 import {SlDepartureService} from "./sl-departure.service";
-import {SlDeparture, Departure, Group} from "./sl-departure.model";
+import {SlDeparture, Departure, Group, SlDepartureGroup} from "./sl-departure.model";
 import {style, animate, transition, trigger} from "@angular/animations";
 import {Station} from "../stations/station.model";
 
@@ -22,7 +22,7 @@ import {Station} from "../stations/station.model";
 })
 export class SlDepartureComponent implements OnInit, OnDestroy {
 
-  slDepartures: SlDeparture[];
+  slDepartureGroups: SlDepartureGroup[];
   updateInterval: number;
   departureGroupType:string;
 
@@ -32,11 +32,11 @@ export class SlDepartureComponent implements OnInit, OnDestroy {
   }
 
   constructor(private slDepartureService: SlDepartureService) {
-    this.updateInterval = <number>setInterval(() => this.getDepartures(this.station), 30000)
+    this.updateInterval = <number>setInterval(() => this.getDepartureGroups(this.station), 30000)
   }
 
   ngOnInit() {
-    this.getDepartures(this.station);
+    this.getDepartureGroups(this.station);
 
   }
 
@@ -44,14 +44,17 @@ export class SlDepartureComponent implements OnInit, OnDestroy {
     clearInterval(this.updateInterval)
   }
 
-  public getDepartures(station: Station) {
-    this.slDepartureService.getDepartures(this.station)
-      .subscribe((slDepartures) => this.slDepartures=slDepartures);
+  public getDepartureGroups(station: Station) {
+    this.slDepartureService.getDepartureGroups(station)
+      .subscribe((slDepartureGroup) => {
+        this.slDepartureGroups=slDepartureGroup;
+        console.log(this.slDepartureGroups);
+      });
   }
 
 
   public shouldAlert(departure: Departure): boolean {
-    return (departure.displayTime === 'Nu' || departure.displayTime !== 'Nu' && departure.displayTime.split(' min')[0].length === 1 && parseInt(departure.displayTime) <= 5)
+    return (departure.time.displayTime === 'Nu' || departure.time.displayTime !== 'Nu' && departure.time.displayTime.split(' min')[0].length === 1 && parseInt(departure.time.displayTime) <= 5)
 
   }
 

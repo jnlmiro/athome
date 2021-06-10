@@ -2,7 +2,7 @@
  * Created by jorgma on 2017-07-09.
  */
 import {Pipe, PipeTransform} from "@angular/core";
-import {Group} from "./sl-departures/sl-departure.model";
+import {SlDepartureGroup} from "./sl-departures/sl-departure.model";
 import {isNullOrUndefined} from "util";
 
 @Pipe({
@@ -10,7 +10,7 @@ import {isNullOrUndefined} from "util";
 })
 
 export class DeparturesFilter implements PipeTransform {
-  transform(departureGroups: Group[], groupType: string): any {
+  transform(departureGroups: SlDepartureGroup[], groupType: string): any {
     if (isNullOrUndefined(groupType))
       return departureGroups;
     else {

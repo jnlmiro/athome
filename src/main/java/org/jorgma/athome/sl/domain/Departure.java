@@ -14,7 +14,7 @@ public class Departure {
 
     private String destination;
     private String stopAreaName;
-    private int journeyNumber;
+    private String journeyNumber;
 
     @JsonSetter(value = "time")
     private DepartureTime departureTime;
@@ -41,11 +41,11 @@ public class Departure {
         this.stopAreaName = stopAreaName;
     }
 
-    public int getJourneyNumber() {
+    public String getJourneyNumber() {
         return journeyNumber;
     }
 
-    public void setJourneyNumber(int journeyNumber) {
+    public void setJourneyNumber(String journeyNumber) {
         this.journeyNumber = journeyNumber;
     }
 

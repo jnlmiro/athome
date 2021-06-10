@@ -33,10 +33,15 @@ export class SlDepartureService {
   }
 
 
+  public getDepartureGroups(station: Station): Observable<SlDepartureGroup[]> {
+    return this.getDepartures(station)
+      .pipe(map((departures) => this.groupByTransportType(departures)));
+  }
+
   public getDepartures(station: Station): Observable<SlDeparture[]> {
     let stationId = station.siteId;
     return this.httpClient.get(`${this.url}${stationId}`)
-      .pipe(map((res) => res));
+      .pipe(map((res) => <SlDeparture[]>res));
   }
 
 
@@ -44,7 +49,7 @@ export class SlDepartureService {
     let group: any = {};
 
     departures.forEach(dp => {
-      if (!group[dp.transport.transportType]) {
+      if (group[dp.transport.transportType]) {
         group[dp.transport.transportType].departures.push(dp);
       } else {
         group[dp.transport.transportType] = {departures: [dp]};
@@ -56,6 +61,7 @@ export class SlDepartureService {
     });
   }
 
+/*
   private mapDepartures(res): SlDeparture {
     let resObj = res;
     let slDeparture = new SlDeparture();
@@ -78,7 +84,6 @@ export class SlDepartureService {
     slDeparture.groups = mappedGroups;
     return slDeparture;
   }
-
 
   private mapGroups(groups: any[], groupName: string): Group[] {
     let departureGroups: Group[] = [];
@@ -119,7 +124,7 @@ export class SlDepartureService {
     groupDeparture.stopPointNumber = departure.stopPointNumber;
     return groupDeparture;
   }
-
+*/
 
   public getTransportationImageClass(group: Group) {
     return TYPE_IMGS[group.type];

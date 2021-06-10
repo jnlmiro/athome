@@ -63,8 +63,11 @@ export class Group {
 export class Departure {
   destination: string;
   deviations: any[];
-  displayTime: string;
-  expectedDateTime: Date;
+  time: {
+    displayTime: string,
+    expectedDateTime: string,
+    timeTabledDateTime: string
+  };
   stopPointNumber: string;
   lineNumber: number;
 }

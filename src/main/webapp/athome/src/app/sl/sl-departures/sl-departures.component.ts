@@ -1,10 +1,7 @@
 /**
  * Created by jorgma on 2017-07-06.
  */
-import {Component, OnInit, OnDestroy, Input} from "@angular/core";
-import {SlDepartureService} from "./sl-departure.service";
-import {SlDeparture, Departure, Group} from "./sl-departure.model";
-import {style, animate, transition, trigger} from "@angular/animations";
+import {Component, OnInit} from "@angular/core";
 import {Station} from "../stations/station.model";
 import {StationsService} from "../stations/stations.service";
 
@@ -20,9 +17,8 @@ export class SlDeparturesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEnabledStations();
+    this.getEnabledStations()
   }
-
 
   getEnabledStations() {
     this.stationsService.getEnabledStations()
